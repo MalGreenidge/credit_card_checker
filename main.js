@@ -42,7 +42,16 @@ const validateCred = arr => {
 };
 
 
-
+const findInvalidCards = arr => { // Checks batch of Credit 
+    const invalidCards = [];
+    for (let i = 0; i < arr.length; i++) {
+        let currentCard = arr[i];
+        if (!validateCred(currentCard)) {
+            invalidCards.push(currentCard);
+        }
+    }
+    return invalidCards;
+}
 
 console.log(findInvalidCards(batch));
 console.log(validateCred(valid3));
