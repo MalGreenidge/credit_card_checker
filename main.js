@@ -42,15 +42,15 @@ const validateCred = arr => {
 };
 
 
-const findInvalidCards = arr => { // Checks batch of Credit 
-    const invalidCards = [];
-    for (let i = 0; i < arr.length; i++) {
-        let currentCard = arr[i];
-        if (!validateCred(currentCard)) {
-            invalidCards.push(currentCard);
+const findInvalidCards = arr => { // Checks and returns invalid credit cards from batch 
+    const invalidCards = []; // Array to store invalid credit cards
+    for (let i = 0; i < arr.length; i++) { //Lopps throgh array
+        let currentCard = arr[i];          //Keeps track of current card, being accessed through for loop
+        if (!validateCred(currentCard)) {   // if it's NOT a valid credit card, based in function validateCred() 
+            invalidCards.push(currentCard); // Add each invalid card to invalidCards array
         }
     }
-    return invalidCards;
+    return invalidCards; // Return array with invalid cards
 }
 
 console.log(findInvalidCards(batch));
