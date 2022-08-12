@@ -53,8 +53,40 @@ const findInvalidCards = arr => { // Checks and returns invalid credit cards fro
     return invalidCards; // Return array with invalid cards
 }
 
+
+//Function that accepts nested array of credit card numbers
+//Checks through nested array for which numbers are invalid
+const idInvalidCardCompanies = arr => {
+    const companies = [];
+    for (let i = 0; i < arr.length; i++) {
+        switch (arr[i][0]) {
+            case 3:
+                if (companies.indexOf('Amex') === -1) {
+                    companies.push('Ames');
+                }
+                break;
+            case 4:
+                if (companies.indexOf('Visa') === -1) {
+                    companies.push('Visa');
+                }
+                break;
+            case 5:
+                if (companies.indexOf('Mastercard') === -1) {
+                    companies.push('Mastercard');
+                }
+                break;
+            case 6:
+                if (companies.indexOf('Discover') === -1) {
+                    companies.push('Discover');
+                }
+                break;
+            default:
+                console.log('Company Not Found!');
+        }
+    }
+    return companies;
+}
+
 console.log(findInvalidCards(batch));
 console.log(validateCred(valid3));
-
-
-
+console.log(idInvalidCardCompanies([invalid2])); 
